@@ -31,12 +31,12 @@ class Blockchain {
         
         //Checking for hash and last hash reference
         for( let i = 1; i< chain.length; i++){
-            const {timeStamp, lastHash, hash, data} = chain[i];
+            const {timeStamp, lastHash, hash, data, nonce, difficulty} = chain[i];
 
             const actualHash = chain[i-1].hash;
 
             if(lastHash !== actualHash) return false;
-            if(cryptoHash(timeStamp, lastHash, data) !== hash) return false;
+            if(cryptoHash(timeStamp, lastHash, data, nonce, difficulty) !== hash) return false;
         }
 
         return true;
