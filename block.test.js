@@ -7,11 +7,13 @@ describe('Block', ()=>{
     const lastHash = 'foo-hash';
     const hash = 'bar-hash';
     const data = ['blockchain', 'data'];
+
     const block = new Block({
         timeStamp,
         lastHash,
         hash,
         data,
+
     });
 
     it('has a timestamp, lastHash, hash, and data property', ()=>{
@@ -19,8 +21,7 @@ describe('Block', ()=>{
         expect(block.lastHash).toEqual(lastHash);
         expect(block.hash).toEqual(hash);
         expect(block.data).toEqual(data);
-        expect(block.difficulty).toEqual(difficulty);
-        expect(block.nonce).toEqual(nonce);
+
     });
 
     describe('genesis()', ()=>{
