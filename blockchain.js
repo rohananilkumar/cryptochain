@@ -32,11 +32,12 @@ class Blockchain {
         //Checking for hash and last hash reference
         for( let i = 1; i< chain.length; i++){
             const {timeStamp, lastHash, hash, data, nonce, difficulty} = chain[i];
-
+            const lastDifficulty = chain[i-1].difficulty;
             const actualHash = chain[i-1].hash;
 
             if(lastHash !== actualHash) return false;
             if(cryptoHash(timeStamp, lastHash, data, nonce, difficulty) !== hash) return false;
+            if(Math.abs(lastDifficulty-difficulty)>1) return false; //Here we check the validity of the difficulty level
         }
 
         return true;
