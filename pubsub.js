@@ -34,7 +34,11 @@ class PubSub{
     }
 
     publish({channel, message}){
-        this.publisher.publish(channel, message);
+        this.subscriber.unsubscribe(channel, ()=>{  //unsubscribing from the channel
+            this.publisher.publish(channel, message,()=>{      //Broadcasting to the channel
+                this.subscriber.subscribe(channel);     //Resubscribing to the channel
+            });
+        });
     }
 
     broadcastChain(){
