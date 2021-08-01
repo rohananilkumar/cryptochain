@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev":"npm run start-redis && nodemon index.js",
+    "start-redis":"redis-server --daemonize yes"
   },
   "keywords": [],
   "author": "",
