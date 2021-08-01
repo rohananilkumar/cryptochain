@@ -6,7 +6,6 @@ app.use(express.json());
 
 const blockchain = new Blockchain();
 const pubsub = new PubSub({blockchain});
-setTimeout(()=>pubsub.broadcastChain(),1000)
 
 
 app.get('/api/blocks', (req, res)=>{
@@ -16,6 +15,7 @@ app.get('/api/blocks', (req, res)=>{
 app.post('/api/mine', (req, res)=>{
     const {data}  = req.body;
     blockchain.addBlock({data});
+    pubsub.broadcastChain();    //Here
     res.redirect('/api/blocks');
 });
 
