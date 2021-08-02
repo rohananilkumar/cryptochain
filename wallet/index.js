@@ -1,13 +1,18 @@
 const {STARTING_BALANCE} = require('../config');
 const { ec } = require('../util');
+const cryptoHash = require('../util/crypto-hash');
 
 class Wallet{
     constructor(){
         this.balance = STARTING_BALANCE;    //Setting our starting balance
 
-        const keyPair = ec.genKeyPair();   //Creates the public and private key
+        this.keyPair = ec.genKeyPair();   //Creates the public and private key
 
-        this.publicKey = keyPair.getPublic().encode('hex');
+        this.publicKey = this.keyPair.getPublic().encode('hex');
+    }
+
+    sign(data){
+        return this.keyPair.sign(cryptoHash(data))  //The sign method works best when the incoming data is hashed.
     }
 }
 
