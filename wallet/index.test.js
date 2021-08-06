@@ -174,14 +174,14 @@ describe('Wallet', ()=>{
                         blockchain.addBlock({ data:[recentTransaction, sameBlockTransaction]});
 
                         nextBlockTransaction = new Wallet().createTransaction({
-                            recipient:wallet.publicKey, amount
+                            recipient:wallet.publicKey, amount:75
                         });
 
                         blockchain.addBlock({data:[nextBlockTransaction]});
                     });
 
                     it('includes the output amount in the returned balance', ()=>{
-                        expect(wallet.calculateBalance({
+                        expect(Wallet.calculateBalance({
                             chain:blockchain.chain,
                             address:wallet.publicKey
                         })).toEqual(
