@@ -118,7 +118,7 @@ describe('Blockchain', ()=>{
 
         describe('when the chain is longer', ()=>{
             beforeEach(()=>{    //Making the new chain longer than the original chain
-                newChain.addBlock({data:'Bears'});
+                newChain.addBlock({data: 'Bears'});
                 newChain.addBlock({data:'Beets'});
                 newChain.addBlock({data:'Something else'});
             });
@@ -126,7 +126,7 @@ describe('Blockchain', ()=>{
             describe('and the chain is invalid',()=>{
                 beforeEach(()=>{
                     newChain.chain[2].hash='fake-chain';    //Invalidating the newChain
-                    blockchain.replaceChain(newChain.chain);
+                    blockchain.replaceChain(newChain.chain, false);
                 })
 
                 it('does not replace the chain', ()=>{
@@ -149,6 +149,19 @@ describe('Blockchain', ()=>{
                 it('logs about the chain replacement', ()=>{
                     expect(logMock).toHaveBeenCalled();
                 })
+            })
+        })
+
+        describe('and the `validateTransaction` flag is true', ()=>{
+            it('calls validTransaction()',()=>{
+                const validTransactionDataMock = jest.fn();
+
+                blockchain.validTransactionData = validTransactionDataMock;
+
+                newChain.addBlock({ data:'foo' });
+                blockchain.replaceChain(newChain.chain, true);
+
+                expect(validTransactionDataMock).toHaveBeenCalled();
             })
         })
     });
