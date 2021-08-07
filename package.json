@@ -11,7 +11,7 @@
     "start-redis": "redis-server --daemonize yes",
     "build-client":"parcel build client/src/index.html --out-dir client/dist",
     "dev-client":"parcel client/src/index.html --out-dir client/dist",
-    "clean":"rm -rf .cache client/dist"
+    "clean":"rmdir .cache /s && rmdir ./client/dist /s"
   },
   "jest": {
     "testEnvironment": "node"

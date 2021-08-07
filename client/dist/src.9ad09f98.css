@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+*{
+    padding: 0;
+    margin:0;
+}
+body{
+    background-color: #3b3b3b;
+}
+
+.app{
+    margin:20px;;
+}
+
+#welcome{
+    text-align: center;
+    color:white;
+    font-family: 'Poppins';
+    font-size: 40px;
+}
+
+.wallet-info{
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    align-items: center;
+    border-radius: 5px;
+    width:60%;
+    margin:auto;
+}
+
+.address, .balance{
+    font-family: 'Poppins';
+    font-size: 20px;
+    width: 90%;
+    word-break: break-all;
+    margin-top: 10px;
+    color:white
+}
+
+.transaction{
+    background-image: linear-gradient(to right, #f400ff, #c83aff, #994dff, #6556f7, #125aeb);
+    border-radius: 5px;
+    margin:10px;
+    padding:10px;
+    color:white;
+    font-family: 'Poppins';
+    font-size: large;
+}
+
+.transaction__id{
+
+}
+
+.transaction__outputMap{
+
+}
+
+.transaction__input{
+
+}
+
+.transaction__input__timeStamp{
+
+}
+
+.transaction__input__amount{
+
+}
+
+.transaction__input__address{
+
+}
+
+.block{
+    color: white;
+    font-family: 'Poppins';
+    background-color: black;
+    margin: 10px;
+    padding:10px;
+    border-radius: 10px;
+    word-break: break-all;
+}
+
+.label{
+    color:red;
+}
+
+
+
+
+
+/*# sourceMappingURL=/src.9ad09f98.css.map */
