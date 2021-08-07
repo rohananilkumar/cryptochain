@@ -1,12 +1,15 @@
 const express = require('express');
+const path = require('path');
 const Blockchain = require('./blockchain');
 const PubSub = require('./app/pubsub');
 const request = require('request');
 const TransactionPool = require('./wallet/transaction-pool');
 const Wallet = require('./wallet');
 const TransactionMiner = require('./app/transaction-miner');
+
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'client/dist')));//used to send static files
 
 const blockchain = new Blockchain();
 const transactionPool = new TransactionPool();
@@ -66,6 +69,10 @@ app.get('/api/wallet-info', (req, res)=>{
         address:address,
         balance:Wallet.calculateBalance({chain:blockchain.chain, address})
     })
+})
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, './client/dist/index.html'));
 })
 
 
