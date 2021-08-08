@@ -1,4 +1,5 @@
 const redis = require('redis');
+const { REDIS_URL } = require('../config');
 
 const CHANNELS = {
     TEST:'TEST',
@@ -11,8 +12,8 @@ class PubSub{
         this.blockchain = blockchain;
         this.transactionPool = transactionPool;
 
-        this.publisher = redis.createClient();  //Able to publish when needed
-        this.subscriber = redis.createClient(); //Able to listen when needed
+        this.publisher = redis.createClient(REDIS_URL);  //Able to publish when needed
+        this.subscriber = redis.createClient(REDIS_URL); //Able to listen when needed
 
         this.subscribeToChannels();
 

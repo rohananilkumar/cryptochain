@@ -72,6 +72,18 @@ body{
 
 }
 
+.transactions{
+    background-color: green;
+    display:inline;
+    padding: 0px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.transactions:hover{
+    background-color: darkgreen;
+}
+
 .block{
     color: white;
     font-family: 'Poppins';

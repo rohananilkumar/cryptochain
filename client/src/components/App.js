@@ -17,16 +17,14 @@ const App = ()=>{
     },[]);
 
     return <div className='app'>
-        <div id='welcome'>
-            Welcome to the blockchain
-        </div>
-        <div className='wallet-info'>
-            {!walletInfo && <p>Loading...</p>}
-            {walletInfo && <div className='address'>Address: {walletInfo.address}</div>}
-            {walletInfo && <div className='balance'>Balance: {walletInfo.balance}</div>}
-        </div>
-        
-        <Blocks/>
+                <div id='welcome'>
+                    Welcome to the blockchain
+                </div>
+                <div className='wallet-info'>
+                    {!walletInfo && <p>Loading...</p>}
+                    {walletInfo && <div className='address'>Address: {walletInfo.address}</div>}
+                    {walletInfo && <div className='balance'>Balance: {walletInfo.balance}</div>}
+                </div>
     </div>
 }
 
