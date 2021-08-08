@@ -1,7 +1,7 @@
 const INITIAL_DIFFICULTY = 3;
 const MINE_RATE = 1000; //Milliseconds
 const isDevelopment = process.env.ENV === 'development';
-const REDIS_URL = isDevelopment? 'redis://127.0.0.1.6379' :'rediss://:p1f32bf6dc922714c83509048b3c32378d2d0f4a28e09c4e9f4005a857d53848d@ec2-54-164-11-40.compute-1.amazonaws.com:16560';
+const REDIS_URL = isDevelopment? 'redis://127.0.0.1.6379' :'redis://:p1f32bf6dc922714c83509048b3c32378d2d0f4a28e09c4e9f4005a857d53848d@ec2-54-164-11-40.compute-1.amazonaws.com:16559';
 
 
 const GENESIS_DATA = {
